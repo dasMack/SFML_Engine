@@ -7,7 +7,17 @@ namespace Exla {
 		: _data(data) { }
 
 	void GameState::init() {
+		_data->assets.loadTexture("SS13", "ss13_64.png");
+		_sprite.setTexture(_data->assets.getTexture("SS13"));
+		_sprite.setPosition(30, 30);
+		_sprite.scale(0.5, 0.5);
+
+		_data->assets.loadSound("Test", "ambience/ambimalf.ogg");
+		_sound.setBuffer(_data->assets.getSound("Test"));
 		
+
+		sf::View view(sf::FloatRect(0, 0, 512, 512));
+		_data->window.setView(view);
 	}
 
 
@@ -19,11 +29,13 @@ namespace Exla {
 
 			case sf::Event::Closed:
 				_data->window.close();
-
+				
+			case sf::Event::Resized:
+				//add black bars
 
 			case sf::Event::KeyPressed:
 				std::cout << "Key Pressed \n";
-
+				_sound.play();
 				switch (evt.key.code)
 				{
 				case sf::Keyboard::A:
@@ -44,6 +56,7 @@ namespace Exla {
 		}
 
 		_data->window.clear();
+		_data->window.draw(_sprite);
 		_data->window.display();
 
 

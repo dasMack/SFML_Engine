@@ -4,7 +4,7 @@
 namespace Exla {
 	void AssetManager::loadTexture(std::string name, std::string fileName){
 		sf::Texture tex;
-		if (tex.loadFromFile(fileName)) {
+		if (tex.loadFromFile( "assets/textures/" + fileName)) {
 			_textures[name] = tex;
 		}
 	}
@@ -15,7 +15,7 @@ namespace Exla {
 
 	void AssetManager::loadFont(std::string name, std::string fileName) {
 		sf::Font font;
-		if (font.loadFromFile(fileName)) {
+		if (font.loadFromFile("assets/fonts/" + fileName)) {
 			_fonts[name] = font;
 		}
 	}
@@ -26,12 +26,12 @@ namespace Exla {
 
 	void AssetManager::loadSound(std::string name, std::string fileName) {
 		sf::SoundBuffer sound;
-		if (sound.loadFromFile(fileName)) {
+		if (sound.loadFromFile("assets/sounds/" + fileName)) {
 			_sounds[name] = sound;
 		}
 	}
 
-	sf::Font &AssetManager::getSound(std::string name) {
-		return _fonts.at(name);
+	sf::SoundBuffer &AssetManager::getSound(std::string name) {
+		return _sounds.at(name);
 	}
 }

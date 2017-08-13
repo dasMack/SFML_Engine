@@ -20,7 +20,7 @@ namespace Exla
 
 		void loadSound(std::string name, std::string fileName);
 
-		sf::Font & getSound(std::string name);
+		sf::SoundBuffer & getSound(std::string name);
 
 	private:
 		std::map<std::string, sf::Texture> _textures;

@@ -11,10 +11,6 @@ namespace Exla {
 		GameState(GameDataRef data);
 
 		void init();
-
-		// No pause() or resume() methods here as this
-		// is a very simple example of a game state.
-
 		void handleInput();
 		void update(float dt);
 		void render(float dt);
@@ -24,6 +20,7 @@ namespace Exla {
 
 		sf::Sprite _sprite;
 		sf::Text _text;
+		sf::Sound _sound;
 	};
 }
 

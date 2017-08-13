@@ -4,7 +4,7 @@ namespace Exla
 {
 	Game::Game(int width, int height, std::string title) {
 		_data->window.create(sf::VideoMode(width, height), title, 
-			sf::Style::Close | sf::Style::Titlebar);
+			sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
 		_data->machine.addState(StateRef(new GameState(_data)));
 
 		run( );
